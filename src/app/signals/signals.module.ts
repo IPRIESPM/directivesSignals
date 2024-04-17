@@ -6,9 +6,17 @@ import { SignalsLayoutComponent } from './layout/signals-layout/signals-layout.c
 import { CounterPageComponent } from './pages/counter-page/counter-page.component';
 import { UserinfoPageComponent } from './pages/userinfo-page/userinfo-page.component';
 import { PropertiesPageComponent } from './pages/properties-page/properties-page.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [SignalsLayoutComponent, CounterPageComponent, UserinfoPageComponent, PropertiesPageComponent],
-  imports: [CommonModule, SignalsRoutingModule],
+  declarations: [
+    SignalsLayoutComponent,
+    CounterPageComponent,
+    UserinfoPageComponent,
+    PropertiesPageComponent,
+    SideMenuComponent,
+  ],
+  imports: [CommonModule, SignalsRoutingModule, RouterModule],
 })
 export class SignalsModule {}
