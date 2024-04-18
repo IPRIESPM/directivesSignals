@@ -22,12 +22,12 @@
   </div>
   <div class="col-8" *ngIf="currentUser()">
     <h3>Usuario</h3>
-    <p><span>Correo:</span> {{ currentUser()?.email }}</p>
-    <p><span>Nombre:</span> {{ currentUser()?.first_name }}</p>
+    <p><span class="fw-bold">Correo:</span> {{ currentUser()?.email }}</p>
+    <p><span class="fw-bold">Nombre:</span> {{ fullName() }}</p>
     <img [src]="currentUser()?.avatar" alt="" class="rounded" />
   </div>
 
-  <div class="col-8 text-danger">
+  <div class="col-8 text-danger" *ngIf="!userWasFound()">
     <h3>Usuario no encontrado</h3>
   </div>
 </div>
