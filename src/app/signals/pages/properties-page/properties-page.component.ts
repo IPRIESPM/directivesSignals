@@ -1,4 +1,4 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, OnDestroy, computed, effect, signal } from '@angular/core';
 import { User } from '../../interfaces/user-request.interface';
 
 @Component({
@@ -15,12 +15,14 @@ export class PropertiesPageComponent {
     avatar: 'https://reqres.in/img/faces/2-image.jpg',
   });
 
+  counter = signal(10);
+
   fullName = computed(
     () => `${this.user().first_name} ${this.user().last_name}`
   );
 
   userChangedEffect = effect(() => {
-    console.log('User changed', this.user());
+    console.log(`User changed ${this.user().first_name} - ${this.counter}`);
   });
 
   onFieldUpdated(field: keyof User, value: string) {
@@ -43,5 +45,9 @@ export class PropertiesPageComponent {
       }
       return current;
     });
+  }
+
+  increaseBy(value: number) {
+    this.counter.update((current) => current + value);
   }
 }
